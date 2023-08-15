@@ -1,37 +1,46 @@
-# chromium_third_party_ffmpeg
+FFmpeg README
+=============
 
-#### 介绍
-多媒体框架
+FFmpeg is a collection of libraries and tools to process multimedia content
+such as audio, video, subtitles and related metadata.
 
-#### 软件架构
-软件架构说明
+## Libraries
 
+* `libavcodec` provides implementation of a wider range of codecs.
+* `libavformat` implements streaming protocols, container formats and basic I/O access.
+* `libavutil` includes hashers, decompressors and miscellaneous utility functions.
+* `libavfilter` provides means to alter decoded audio and video through a directed graph of connected filters.
+* `libavdevice` provides an abstraction to access capture and playback devices.
+* `libswresample` implements audio mixing and resampling routines.
+* `libswscale` implements color conversion and scaling routines.
 
-#### 安装教程
+## Tools
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* [ffmpeg](https://ffmpeg.org/ffmpeg.html) is a command line toolbox to
+  manipulate, convert and stream multimedia content.
+* [ffplay](https://ffmpeg.org/ffplay.html) is a minimalistic multimedia player.
+* [ffprobe](https://ffmpeg.org/ffprobe.html) is a simple analysis tool to inspect
+  multimedia content.
+* Additional small tools such as `aviocat`, `ismindex` and `qt-faststart`.
 
-#### 使用说明
+## Documentation
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+The offline documentation is available in the **doc/** directory.
 
-#### 参与贡献
+The online documentation is available in the main [website](https://ffmpeg.org)
+and in the [wiki](https://trac.ffmpeg.org).
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### Examples
 
+Coding examples are available in the **doc/examples** directory.
 
-#### 特技
+## License
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
+GPL. Please refer to the LICENSE file for detailed information.
+
+## Contributing
+
+Patches should be submitted to the ffmpeg-devel mailing list using
+`git format-patch` or `git send-email`. Github pull requests should be
+avoided because they are not part of our review process and will be ignored.
