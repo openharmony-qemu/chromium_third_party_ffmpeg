@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "chromium_third_party_ffmpeg",                   # 上游开源软件名全称
+        "License": "software"  ，"Marko Kreen"，"Thomas G. Lane"  ，"Lane" ,"zlib-acknowledgement","LGPL-2.1+","GPL-2.0-or-later","GPL-3.0-or-later","GPLStyleLicense","LGPLStyleLicense","MPL-2.0","Chris Moeller","Vesselin Bontchev"       # 上游开源软件中包含的许可证信息
+        "License File": "LICENSE.md"  # 许可证所在文件路径
+        "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
+        "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
+        "Description": "多媒体框架"           # 开源软件功能描述
+    }
+]

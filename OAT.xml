@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <oatconfig>
+        <policylist>
+            <policy name="projectPolicy" desc="">
+             <policyitem type="compatibility" name="zlib-acknowledgement" path="libavutil.*" desc="" />
+                <policyitem type="compatibility" name="zlib-acknowledgement" path=".*" desc="" />
+                <policyitem type="compatibility" name="LGPL-2.1+" path=".*" desc="" />
+                <policyitem type="compatibility" name="GPL-2.0-or-later" path=".*" desc="" />
+                <policyitem type="compatibility" name="GPL-3.0-or-later" path=".*" desc="" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="" />
+                <policyitem type="compatibility" name="LGPLStyleLicense" path=".*" desc="" />
+                <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="" />
+                <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="" />
+                <policyitem type="compatibility" name="Chris Moeller" path=".*" desc="" />
+                <policyitem type="compatibility" name="Vesselin Bontchev" path=".*" desc="" />
+                <policyitem type="compatibility" name="Lane" path="libavcodec.*" desc="" />
+                <policyitem type="compatibility" name="Thomas G. Lane" path="libavcodec.*" desc="" /> 
+                <policyitem type="compatibility" name="Marko Kreen" path="libavcodec.*" desc="" />
+                <policyitem type="compatibility" name="software" path="libavcodec.*" desc="" />
+            </policy>
+        </policylist>
+        <filefilterlist>
+            <filefilter name="defaultPolicyFilter"
+                desc="Filters for compatibility,license header policies">
+                <filteritem type="filepath" name="third_party/llvm-10.0/llvm/include/llvm/Support/LICENSE.TXT"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/SPIRV-Tools/BUILD.bazel"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/llvm-subzero/LICENSE.TXT"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/subzero/LICENSE.TXT"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/subzero/bloat/README.chromium"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/llvm-10.0/Android.bp"
+                    desc="" />
+                <filteritem type="filepath" name="third_party/SPIRV-Headers/BUILD.bazel"
+                    desc="" />
+                <filteritem type="filepath" name="README.OpenSource"
+                    desc="" />
+                 <filteritem type="filepath" name=".*h"
+                    desc="" />
+                <filteritem type="filepath" name="tests/ref/fate/source"
+                    desc="" />
+                <filteritem type="filepath" name="doc/git-howto.texi"
+                    desc="" />
+                <filteritem type="filepath" name="doc/platform.texi"
+                    desc="" />
+                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata"
+                    desc="" />
+                </filefilter>
+                <filefilter name="defaultFilter">
+                <filteritem type="filepath" name="README.OpenSource"
+                    desc="" />
+            </filefilter> 
+        </filefilterlist>
+        <licensematcherlist>
+            <licensematcher name="Chris Moeller" desc="">
+                <licensetext name="
+                 *  Copyright (C) 2010, Chris Moeller,
+            " desc="" />
+            </licensematcher> 
+            <licensematcher name="Vesselin Bontchev" desc="">
+                <licensetext name="
+                 * Copyright (c) 2015 Vesselin Bontchev
+            " desc="" />
+            </licensematcher> 
+            <licensematcher name="Lane" desc="">
+                <licensetext name="
+                 copyright (C) 1991, 1992, Thomas G. Lane.
+            " desc="" />
+            </licensematcher>  
+            <licensematcher name="Thomas G. Lane" desc="">
+                <licensetext name="
+                 * This software is copyright (C) 1991-1996, Thomas G. Lane.
+            " desc="" />
+            </licensematcher> 
+            <licensematcher name="Marko Kreen" desc="">
+                <licensetext name="
+                 * Copyright (c) 2004-2008 Marko Kreen
+            " desc="" />
+            </licensematcher>
+            <licensematcher name="software" desc="">
+                <licensetext name="
+                * This software is copyright (C) 1994-1996, Thomas G. Lane.
+            " desc="" />
+            </licensematcher>
+        </licensematcherlist>
+    </oatconfig>
+</configuration>
