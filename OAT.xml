@@ -1,70 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <oatconfig>
+     <licensefile>LICENSE.chroium_os</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
-             <policyitem type="compatibility" name="zlib-acknowledgement" path="libavutil.*" desc="" />
-                <policyitem type="compatibility" name="LGPLStyleLicense" path=".*" desc="" />
-                <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="" />
-                <policyitem type="compatibility" name="GPL-2.0-or-later" path=".*" desc="" />
-                <policyitem type="compatibility" name="GPL-3.0-or-later" path=".*" desc="" />
-                <policyitem type="compatibility" name="LGPL-2.1+" path=".*" desc="" />
-                <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="" />
-                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="libavcodec.*" desc="" />
-                <policyitem type="compatibility" name="GPL-1.0-or-later" path="libavformat.*" desc="" />
+                <policyitem type="compatibility" name="LGPLStyleLicense" path=".*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="Other Permissive Licenses" path="libavformat/aadec.c" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="zlib-acknowledgement" path="libavutil.*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="MPL-2.0" path="chromium/scripts/cygwin-wrapper" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path="libavfilter/vf_colormatrix.c" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path=".*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="LGPL-2.1+" path=".*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="GPL-3.0+" path=".*" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="AGPL-3.0-only" path="libavfilter/af_hdcd.c" desc="经法务确定，涉及文件在render进程进行了隔离" />
+                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="libavcodec.*" desc="经法务确定，涉及文件在render进程进行了隔离" />
             </policy>
         </policylist>
         <filefilterlist>
             <filefilter name="defaultPolicyFilter"
                 desc="Filters for compatibility,license header policies">
-                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata"
-                    desc="" />
-                <filteritem type="filepath" name="libavfilter/af_hdcd.c"
-                    desc="" />
-                <filteritem type="filepath" name="tests/ref/fate/source"
-                    desc="" />
-                <filteritem type="filepath" name="doc/git-howto.texi"
-                    desc="" />
-                <filteritem type="filepath" name="doc/platform.texi"
-                    desc="" />
+                <filteritem type="filepath" name="chromium/config/Chrome/android.*"
+                    desc="chrom原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/android.*"
+                    desc="chrom原生文件无license" />
                 <filteritem type="filepath" name=".*h"
-                    desc="" />
-                <filteritem type="filepath" name="README.OpenSource"
-                    desc="" />
-                </filefilter>
-                <filefilter name="defaultFilter">
-                <filteritem type="filepath" name="README.OpenSource"
-                    desc="" />
-                <filteritem type="filepath" name=".*png"
-                    desc="" />
-                <filteritem type="filepath" name=".*wav"
-                    desc="" />
-                <filteritem type="filepath" name="tests/reference.pnm"
-                    desc="" />
-                <filteritem type="filepath" name="tools/clean-diff"
-                    desc="" />
+                    desc="chrom原生文件无license" />
+                <filteritem type="filepath" name="doc/git-howto.texi"
+                    desc="chrom原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/source"
+                    desc="chrom原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata"
+                    desc="chrom原生文件无license" />
+                <filteritem type="filepath" name="doc/platform.texi"
+                    desc="chrom原生文件无license" />
+            </filefilter>
+            <filefilter name="readmeOpenSourcefileNamePolicFilter">
+                <filteritem type="filepath" name="README.OpenSource" desc="Filter readme.opensource files" />
+            </filefilter>        
+            <filefilter name="binaryFileTypePolicyFilter" desc="Check to see if it is a binary file">
+                <filteritem type="filepath" name="tests/ref/lavf/gray16be.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/rgb48be.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/apng.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/reference.pnm" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tools/clean-diff" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/peak.wav" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/peak_only.wav" desc="chromium原生二进制文件,不会使用"/>   
             </filefilter> 
         </filefilterlist>
         <licensematcherlist>
+            <licensematcher name="Other Permissive Licenses" desc="">
+                <licensetext name="
+                 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+                 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+                 * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+                 * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+                 * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+                 * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+                 * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+                 * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+                 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+            " desc="" />
+            </licensematcher>
             <licensematcher name="Generic Bare Warranty Disclaimer" desc="">
                 <licensetext name="
-                * The authors make NO WARRANTY or representation, either express or implied,
-                * with respect to this software, its quality, accuracy, merchantability, or
-                * fitness for a particular purpose.  This software is provided  &quot;AS IS &quot;, and
-                * you, its user, assume the entire risk as to its quality and accuracy.
+                 * This file is part of the Independent JPEG Group's software.
+                 *
+                 * The authors make NO WARRANTY or representation, either express or implied,
+                 * with respect to this software, its quality, accuracy, merchantability, or
+                 * fitness for a particular purpose.  This software is provided &quot;AS IS&quot;, and
+                 * you, its user, assume the entire risk as to its quality and accuracy.
             " desc="" />
             </licensematcher>
-            <licensematcher name="ISC" desc="">
+            <licensematcher name="0BSD" desc="">
                 <licensetext name="
-                * Permission to use, copy, modify, and distribute this software for any
-                * purpose with or without fee is hereby granted, provided that the above
-                * copyright notice and this permission notice appear in all copies.
+                  * THE SOFTWARE IS PROVIDED  &quot;AS IS &quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+                 * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+                 * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+                 * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+                 * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+                 * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+                 * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             " desc="" />
             </licensematcher>
-            <licensematcher name="GPL-1.0-or-later" desc="">
+            <licensematcher name="AGPL-3.0-only" desc="">
                 <licensetext name="
-                 * 1. Redistributions of source code must retain the above copyright notice, this
-                *    list of conditions and the following disclaimer..
+                 *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+                 *  &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+                 *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+                 *  A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+                 *  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                 *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                 *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                 *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                 *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                 *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                 *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             " desc="" />
             </licensematcher>
         </licensematcherlist>

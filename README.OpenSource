@@ -1,7 +1,7 @@
 [
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"zlib-acknowledgement"      # 上游开源软件中包含的许可证信息
+        "License":"LGPLStyleLicense"     # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -9,7 +9,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"LGPL-2.1+"     # 上游开源软件中包含的许可证信息
+        "License":"GPLStyleLicense"     # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -17,7 +17,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"GPL-2.0-or-later"    # 上游开源软件中包含的许可证信息
+        "License":"Other Permissive Licenses"    # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -25,7 +25,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"GPL-3.0-or-later"    # 上游开源软件中包含的许可证信息
+        "License":"zlib-acknowledgement"    # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -33,7 +33,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"GPLStyleLicense"    # 上游开源软件中包含的许可证信息
+        "License":"MPL-2.0"    # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -41,7 +41,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"LGPLStyleLicense"      # 上游开源软件中包含的许可证信息
+        "License":"GPL-2.0+"      # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -49,7 +49,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"MPL-2.0"      # 上游开源软件中包含的许可证信息
+        "License":"LGPL-2.1+"      # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -57,7 +57,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"Chris Moeller"     # 上游开源软件中包含的许可证信息
+        "License":"GPL-3.0+"      # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -65,15 +65,7 @@
     },
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"Vesselin Bontchev"     # 上游开源软件中包含的许可证信息
-        "License File": "LICENSE.md"  # 许可证所在文件路径
-        "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
-        "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
-        "Description": "多媒体框架"           # 开源软件功能描述
-    },
-    {
-        "Name": "ffmpeg",                   # 上游开源软件名全称
-        "License":"GPL-1.0-or-later"      # 上游开源软件中包含的许可证信息
+        "License":"AGPL-3.0-only"     # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
@@ -82,6 +74,14 @@
     {
         "Name": "ffmpeg",                   # 上游开源软件名全称
         "License":"Generic Bare Warranty Disclaimer"      # 上游开源软件中包含的许可证信息
+        "License File": "LICENSE.md"  # 许可证所在文件路径
+        "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
+        "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
+        "Description": "多媒体框架"           # 开源软件功能描述
+    },
+    {
+        "Name": "ffmpeg",                   # 上游开源软件名全称
+        "License":"0BSD"     # 上游开源软件中包含的许可证信息
         "License File": "LICENSE.md"  # 许可证所在文件路径
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",   # 上游软件包发布地址
