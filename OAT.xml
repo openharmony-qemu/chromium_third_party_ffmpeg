@@ -63,32 +63,32 @@ used to filter file path.
      <licensefile>LICENSE.chroium_os</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
-                <policyitem type="compatibility" name="LGPLStyleLicense" path=".*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="Other Permissive Licenses" path="libavformat/aadec.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="zlib-acknowledgement" path="libavutil/adler32.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-2.0+" path="libavfilter/vf_colormatrix.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-2.0+" path="doc/general_contents.texi" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-2.0+" path="libavfilter/vf_colormatrix.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-2.0+" path="tests/tiny_ssim.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="LGPL-2.1+" path="COPYING.LGPLv2.1" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="LGPL-2.1+" path="libswresample/noise_shaping_data.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-3.0+" path="COPYING.GPLv3" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="AGPL-3.0-only" path="libavfilter/af_hdcd.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="libavcodec.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-3.0-or-later" path="libavfilter/vf_lensfun.c" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="GPL-2.0-or-later" path="COPYING.GPLv2" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="LGPL-3.0+" path="COPYING.LGPLv3" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="LGPLStyleLicense" path=".*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="Other Permissive Licenses" path="libavformat/aadec.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="zlib-acknowledgement" path="libavutil/adler32.c" desc="经法务确认经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path="libavfilter/vf_colormatrix.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path="doc/general_contents.texi" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path="libavfilter/vf_colormatrix.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0+" path="tests/tiny_ssim.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="LGPL-2.1+" path="COPYING.LGPLv2.1" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="LGPL-2.1+" path="libswresample/noise_shaping_data.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-3.0+" path="COPYING.GPLv3" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="AGPL-3.0-only" path="libavfilter/af_hdcd.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="libavcodec.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-3.0-or-later" path="libavfilter/vf_lensfun.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPL-2.0-or-later" path="COPYING.GPLv2" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="LGPL-3.0+" path="COPYING.LGPLv3" desc="经法务确认,涉及文件在render下进行了隔离" />
             </policy>
         </policylist>
         <filefilterlist>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility,license header policies">              
-                <filteritem type="filepath" name=".*h" desc="chrom原生文件无license" />
-                <filteritem type="filepath" name="doc/git-howto.texi" desc="chrom原生文件无license" />
-                <filteritem type="filepath" name="tests/ref/fate/source" desc="chrom原生文件无license" />
-                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata" desc="chrom原生文件无license" />
-                <filteritem type="filepath" name="doc/platform.texi" desc="chrom原生文件无license" />
+                <filteritem type="filepath" name=".*h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="doc/git-howto.texi" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/source" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="doc/platform.texi" desc="chromium原生文件无license" />
             </filefilter>
             <filefilter name="defaultFilter" desc="File is not used">
                 <filteritem type="filepath" name="chromium/config/Chrome/android.*" desc="经确认不适用该类文件" />
