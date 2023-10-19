@@ -89,11 +89,10 @@ used to filter file path.
             <filefilter name="defaultFilter" desc="File is not used">
                 <filteritem type="filepath" name="chromium/config/Chrome/android.*" desc="经确认不适用该类文件" />
                 <filteritem type="filepath" name="chromium/config/Chromium/android.*" desc="经确认不适用该类文件" />
-                <filteritem type="filepath" name="COPYING.GPLv3" desc="GPL-3.0+禁止使用" />
-                <filteritem type="filepath" name="COPYING.LGPLv3" desc="LGPL-3.0+禁止使用" />
-                <filteritem type="filepath" name="libavfilter/af_hdcd.c" desc="AGPL-3.0-only禁止使用" />
-                <filteritem type="filepath" name="libavfilter/vf_lensfun.c" desc="GPL-3.0-or-later禁止使用" />
-
+                <filteritem type="filepath" name="COPYING.GPLv3" desc="该文件涉及GPL-3.0+,经确认不会使用" />
+                <filteritem type="filepath" name="COPYING.LGPLv3" desc="该文件涉及LGPL-3.0+,经确认不会使用" />
+                <filteritem type="filepath" name="libavfilter/af_hdcd.c" desc="该文件涉及AGPL-3.0-only,经确认不会使用" />
+                <filteritem type="filepath" name="libavfilter/vf_lensfun.c" desc="该文件GPL-3.0-or-later,经确认不会使用" />
             </filefilter>
             <filefilter name="readmeOpenSourcefileNamePolicFilter">
                 <filteritem type="filepath" name="README.OpenSource" desc="Filter readme.opensource files" />
