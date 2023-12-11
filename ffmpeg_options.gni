@@ -71,4 +71,6 @@ if ((is_linux || is_chromeos) && is_msan) {
   os_config = "win-msvc"
 } else if (is_ohos) {
   os_config = "linux"
+} else if (is_ohos && !use_musl) {
+  os_config = "linux"
 }
