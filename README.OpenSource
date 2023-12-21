@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "ffmpeg",
+        "License":"LGPL-2.1-or-later",
+        "License File": "LICENSE.md",
+        "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
+        "Owner": "huangjiewen2@huawei.com",
+        "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",
+        "Description": "多媒体框架" 
+    }
+]
