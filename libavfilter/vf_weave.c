@@ -108,7 +108,7 @@ static int weave_slice(AVFilterContext *ctx, void *arg, int jobnr, int nb_jobs)
         const int height = s->planeheight[i];
         const int start = (height * jobnr) / nb_jobs;
         const int end = (height * (jobnr+1)) / nb_jobs;
-	const int compensation = 2*end > s->outheight[i];
+        const int compensation = 2*end > s->outheight[i];
 
         av_image_copy_plane(out->data[i] + out->linesize[i] * field1 +
                             out->linesize[i] * start * 2,
