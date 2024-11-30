@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (c) 2021 Huawei Device Co., Ltd.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+    This is the configuration file template for OpenHarmony OSS Audit Tool, please copy it to your
+project root dir and modify it refer to OpenHarmony/tools_oat/README.
+    All configurations in this file will be merged to OAT-Default.xml, if you have any questions or
+concerns, please create issue in OpenHarmony/tools_oat and @jalenchen or chenyaxun.
+
+    licensefile:
+    1.If the project don't have "LICENSE" in root dir, please define all the license files in this
+project in , OAT will check license files according to this rule.
+
+    policylist:
+    1. policy: If the OAT-Default.xml policies do not meet your requirements, please add policies here.
+    2. policyitem: The fields type, name, path, desc is required, and the fields rule, group,
+filefilter is optional,the default value is:
+    <policyitem type="" name="" path="" desc="" rule="may" group="defaultGroup"
+filefilter="defaultPolicyFilter"/>
+    3. policyitem type:
+        "compatibility" is used to check license compatibility in the specified path;
+        "license" is used to check source license header in the specified path;
+        "copyright" is used to check source copyright header in the specified path;
+        "import" is used to check source dependency in the specified path, such as import ... ,include ...
+        "filetype" is used to check file type in the specified path, supported file types: archive, binary
+        "filename" is used to check whether the specified file exists in the specified path(projectroot
+means the root dir of the project), supported file names: LICENSE, README, README.OpenSource
+    4. policyitem name: This field is used for define the license, copyright, "*" means match all, the
+"!" prefix means could not match this value. For example, "!GPL" means can not use GPL license.
+    5. policyitem path: This field is used for define the source file scope to apply this policyitem,
+the "!" prefix means exclude the files. For example, "!.*/lib/.*" means files in lib dir will be
+exclude while process this policyitem.
+    6. policyitem rule and group: These two fields are used together to merge policy results. "may"
+policyitems in the same group means any one in this group passed, the result will be passed.
+    7. policyitem filefilter: Used to bind filefilter which define filter rules.
+    7. policyitem desc: Used to describe the reason of this policy item, committers will check this
+while merging the code.
+    8. filefilter: Filter rules, the type filename is used to filter file name, the type filepath is
+used to filter file path.
+
+    Note:If the text contains special characters, please escape them according to the following rules:
+    " == &quot;
+    & == &amp;
+    ' == &apos;
+    < == &lt;
+    > == &gt;
+-->
+
+<configuration>
+    <oatconfig>
+     <licensefile>LICENSE.md</licensefile>
+        <policylist>
+            <policy name="projectPolicy" desc="">
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavcodec/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*c" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="GPLStyleLicense" path="tests/checkasm/riscv/checkasm.S" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/vf_yadif_videotoolbox.metal" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_bilateral_cuda.cu" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_chromakey_cuda.cu" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_yadif_videotoolbox.m" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/aarch64/tx_float_neon.S" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="chromium/config/Chromium/ios/x64/config.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/utils.m" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version.c" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/loongarch/swscale_loongarch.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            </policy>
+        </policylist>
+        <filefilterlist>
+            <filefilter name="defaultPolicyFilter" desc="Filters for compatibility,license header policies">
+                <filteritem type="filepath" name="chromium/config/Chromium/linux/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/mac/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/linux/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux-noasm/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/linux/arm-neon/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/win-msvc/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/win-msvc/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/linux/arm/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/win/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux-noasm/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/win/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux/arm-neon/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/win/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/linux/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/linux/arm/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/mac/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux/arm/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/ChromeOS/linux/arm-neon/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/linux-noasm/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/win-msvc/.*h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/win/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/win/ia32/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/win/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/mac/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/mac/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="doc/git-howto.texi" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/source" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="tests/ref/fate/hevc-hdr10-plus-metadata" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="doc/platform.texi" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="COPYING.GPLv3" desc="该文件的许可证GPL_3.0_only" />
+                <filteritem type="filepath" name="COPYING.LGPLv3" desc="该文件的许可证LGPL_3.0_only" />
+                <filteritem type="filepath" name="COPYING.LGPLv2.1" desc="该文件的许可证LGPL_2.1_only" />
+                <filteritem type="filepath" name="COPYING.GPLv2" desc="该文件的许可证GPL_2.0_only" />
+                <filteritem type="filepath" name="README.chromium" desc="chromium的开源软件元数据文件" />
+                <filteritem type="filepath" name="chromium/config/Chrome/ios/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chrome/ios/arm64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/ios/x64/config.h" desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="chromium/config/Chromium/ios/arm64/config.h" desc="chromium原生文件无license" />
+            </filefilter>
+            <filefilter name="defaultFilter" desc="File is not used">
+                <filteritem type="filepath" name="libswresample/noise_shaping_data.c" desc="经确认不使用该类文件" />
+                <filteritem type="filepath" name="chromium/config/Chrome/android/.*" desc="经确认不使用该类文件" />
+                <filteritem type="filepath" name="chromium/config/Chromium/android/.*" desc="经确认不使用该类文件" />
+                <filteritem type="filepath" name="tests/checkasm/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/dnn/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/rotozoom.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/checkasm/checkasm.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/checkasm/aarch64/checkasm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/tiny_psnr.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/checkasm/arm/checkasm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/audiogen.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/tiny_ssim.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/audiomatch.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/utils.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/checkasm/x86/checkasm.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/base64.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/videogen.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tests/fate/source-check.sh" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/examples/transcode_aac.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/print_options.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/examples/filter_audio.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/t2h.pm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/general_contents.texi" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="doc/texi2pod.pl" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/make_chlayout_test" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/patcheck" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/plotframes" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/target_dec_fate.sh" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/python/convert.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/python/convert_from_tensorflow.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/python/convert_header.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/decode_simple.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/python/tf_sess_config.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/tools/dvd2concat" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tools/dvd2concat" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="cfftools/ffprobe.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffplay.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg_videotoolbox.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg_opt.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg_hw.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg_filter.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/cmdutils.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffprobe.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/cmdutils.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fftools/ffmpeg.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/.*h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/x86/.*asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/opencl/.*cl" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/glslang.cpp" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/vf_coreimage.m" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/vf_overlay_cuda.cu" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/vf_yadif_cuda.cu" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavfilter/aarch64/vf_nlmeans_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/.*h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/audiotoolbox.m" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/avfoundation.m" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/decklink_common.cpp" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/decklink_dec.cpp" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavdevice/decklink_enc.cpp" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/x86/.*asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/x86/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/arm/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/arm/.*S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/aarch64/yuv2rgb_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/ppc/yuv2rgb_altivec.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/rgb2rgb.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/swscale.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/swscale_internal.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/version.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/aarch64/hscale.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/aarch64/output.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswscale/aarch64/rgb2rgb_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/aarch64/.*S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/x86/.*asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/fmtconvert_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hpeldsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/simple_idct_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/ppc/fft_altivec.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/alpha/idctdsp_alpha_asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mpegvideo_armv5te_s.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp8dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/alpha/me_cmp_mvi_asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/g722dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/idctdsp_arm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mpegvideo_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/startcode_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/h264cmc_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mpegvideoencdsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/synth_filter_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9itxfm_16bpp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/h264dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/idctdsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/synth_filter_vfp.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9itxfm_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/h264idct_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/idctdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/pixblockdsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9lpf_16bpp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/aacpsdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/h264pred_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/int_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/pixblockdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vc1dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9lpf_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/ac3dsp_arm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/h264qpel_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/rdft_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9mc_16bpp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/ac3dsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/lossless_audiodsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/rv34dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/videodsp_armv5te.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp9mc_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/ac3dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hevcdsp_deblock_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/rv40dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vorbisdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/blockdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hevcdsp_idct_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mdct_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/sbcdsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp3dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hevcdsp_qpel_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mdct_vfp.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/sbcdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/fft_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hpeldsp_arm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mlpdsp_armv5te.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/simple_idct_arm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/fft_vfp.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mlpdsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/simple_idct_armv5te.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp8_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/ppc/asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/audiodsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hevcdsp_sao_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/me_cmp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/sbrdsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp6dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/alpha/hpeldsp_alpha_asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/flacdsp_arm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/hpeldsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/mpegaudiodsp_fixed_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/simple_idct_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/vp8dsp_armv6.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/.*h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/arm/fmtconvert_vfp.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/x86/flac_dsp_gpl.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavcodec/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavformat/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/.*c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/lls.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/pixelutils.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/arm/float_dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/tx_float.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/arm/float_dsp_vfp.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/aarch64/asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/x86util.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/cpuid.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/emms.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/aarch64/float_dsp_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/fixed_dsp.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/float_dsp.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/x86/imgutils.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/arm/asm.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavutil/.*h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/solaris/make_sunver.pl" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/getopt.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/djgpp/math.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/pthread/stdatomic.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/strtod.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/msvcrt/snprintf.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/msvcrt/snprintf.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/msvcrt/strtod.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/gcc/stdatomic.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/pthread/stdatomic.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/suncc/stdatomic.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/aix/math.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/dummy/stdatomic.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/float/limits.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/atomics/win32/stdatomic.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/os2threads.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/va_copy.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/cuda/cuda_runtime.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/w32dlfcn.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/cuda/dynlink_loader.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/dispatch_semaphore/semaphore.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/w32pthreads.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/djgpp/math.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/resample_template.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/rematrix_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/soxr_resample.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/resample_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/swresample.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/w64xmmtest.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/swresample_frame.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/aarch64/audio_convert_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/audioconvert.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/aarch64/neontest.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/dither.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/aarch64/resample_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/dither_template.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/arm/audio_convert_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/arm/neontest.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/arm/resample_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/options.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/rematrix.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/rematrix_template.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/tests/swresample.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/resample.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/resample_dsp.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/audio_convert_init.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/resample.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/swresample.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/swresample_internal.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/version.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/aarch64/audio_convert_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/aarch64/resample.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/arm/audio_convert_neon.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/arm/resample.S" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/audio_convert.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/rematrix.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/audioconvert.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libswresample/x86/resample.asm" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="configure" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="LICENSE.md" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/postprocess.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/postprocess_altivec_template.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/postprocess_template.c" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="chromium/scripts/cygwin-wrapper" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="chromium/scripts/credits_updater.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/postprocess.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compat/float/float.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/postprocess_internal.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libpostproc/version.h" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="CREDITS.chromium" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="libavformat/.*h" desc="经确认，该文件不会使用" />
+            </filefilter>
+            <filefilter name="binaryFileTypePolicyFilter" desc="Check to see if it is a binary file">
+                <filteritem type="filepath" name="tests/ref/lavf/gray16be.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/rgb48be.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/apng.png" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/reference.pnm" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tools/clean-diff" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/peak.wav" desc="chromium原生二进制文件,不会使用"/>
+                <filteritem type="filepath" name="tests/ref/lavf/peak_only.wav" desc="chromium原生二进制文件,不会使用"/>
+            </filefilter>
+        </filefilterlist>
+    </oatconfig>
+</configuration>
