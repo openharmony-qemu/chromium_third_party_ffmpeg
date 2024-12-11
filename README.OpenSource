@@ -6,6 +6,6 @@
         "Version Number": "1edb3eb4914e0545e9775939ead4a5795746f993",
         "Owner": "huangjiewen2@huawei.com",
         "Upstream URL": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git@1edb3eb4914e0545e9775939ead4a5795746f993",
-        "Description": "多媒体框架" 
+        "Description": "一个跨平台的多媒体框架, 音频和视频处理库，支持多种格式和功能"
     }
 ]

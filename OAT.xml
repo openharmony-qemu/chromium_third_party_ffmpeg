@@ -125,6 +125,7 @@ used to filter file path.
                 <filteritem type="filepath" name="COPYING.LGPLv3" desc="该文件的许可证LGPL_3.0_only" />
                 <filteritem type="filepath" name="COPYING.LGPLv2.1" desc="该文件的许可证LGPL_2.1_only" />
                 <filteritem type="filepath" name="COPYING.GPLv2" desc="该文件的许可证GPL_2.0_only" />
+                <filteritem type="filepath" name="LICENSE.md" desc="该文件的许可证LGPL-2.1-or-later" />
                 <filteritem type="filepath" name="README.chromium" desc="chromium的开源软件元数据文件" />
                 <filteritem type="filepath" name="chromium/config/Chrome/ios/x64/config.h" desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="chromium/config/Chrome/ios/arm64/config.h" desc="chromium原生文件无license" />
@@ -363,7 +364,6 @@ used to filter file path.
                 <filteritem type="filepath" name="libswresample/audioconvert.h" desc="经确认，该文件不会使用" />
                 <filteritem type="filepath" name="libswresample/x86/resample.asm" desc="经确认，该文件不会使用" />
                 <filteritem type="filepath" name="configure" desc="经确认，该文件不会使用" />
-                <filteritem type="filepath" name="LICENSE.md" desc="经确认，该文件不会使用" />
                 <filteritem type="filepath" name="libpostproc/postprocess.c" desc="经确认，该文件不会使用" />
                 <filteritem type="filepath" name="libpostproc/postprocess_altivec_template.c" desc="经确认，该文件不会使用" />
                 <filteritem type="filepath" name="libpostproc/postprocess_template.c" desc="经确认，该文件不会使用" />
