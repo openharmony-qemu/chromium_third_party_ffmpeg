@@ -63,25 +63,25 @@ used to filter file path.
      <licensefile>LICENSE.md</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavcodec/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/riscv/.*S" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*h" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*c" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="GPLStyleLicense" path="tests/checkasm/riscv/checkasm.S" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/vf_yadif_videotoolbox.metal" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version.c" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_bilateral_cuda.cu" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_chromakey_cuda.cu" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_yadif_videotoolbox.m" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/aarch64/tx_float_neon.S" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="chromium/config/Chromium/ios/x64/config.h" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/version_major.h" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/utils.m" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version.c" desc="经法务确认,涉及文件在render下进行了隔离" />
-            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/loongarch/swscale_loongarch.h" desc="经法务确认,涉及文件在render下进行了隔离" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavcodec/riscv/.*S" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/riscv/.*S" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/riscv/.*S" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*h" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="fftools/.*c" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="GPLStyleLicense" path="tests/checkasm/riscv/checkasm.S" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/vf_yadif_videotoolbox.metal" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version_major.h" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version.c" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswresample/version_major.h" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_bilateral_cuda.cu" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_chromakey_cuda.cu" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/vf_yadif_videotoolbox.m" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavutil/aarch64/tx_float_neon.S" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="chromium/config/Chromium/ios/x64/config.h" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/version_major.h" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libavfilter/metal/utils.m" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libpostproc/version.c" desc="经确认,涉及文件属动态链接库" />
+            <policyitem type="compatibility" name="LGPLStyleLicense" path="libswscale/loongarch/swscale_loongarch.h" desc="经确认,涉及文件属动态链接库" />
             </policy>
         </policylist>
         <filefilterlist>
