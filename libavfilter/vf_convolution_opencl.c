@@ -20,6 +20,7 @@
 
 #include "config_components.h"
 
+#include "libavutil/avassert.h"
 #include "libavutil/common.h"
 #include "libavutil/imgutils.h"
 #include "libavutil/mem.h"
@@ -29,7 +30,7 @@
 
 
 #include "avfilter.h"
-#include "internal.h"
+#include "filters.h"
 #include "opencl.h"
 #include "opencl_source.h"
 #include "video.h"
@@ -62,7 +63,7 @@ static int convolution_opencl_init(AVFilterContext *avctx)
     cl_int cle;
     int err;
 
-    err = ff_opencl_filter_load_program(avctx, &ff_opencl_source_convolution, 1);
+    err = ff_opencl_filter_load_program(avctx, &ff_source_convolution_cl, 1);
     if (err < 0)
         goto fail;
 
@@ -80,6 +81,8 @@ static int convolution_opencl_init(AVFilterContext *avctx)
         kernel_name = "prewitt_global";
     } else if (!strcmp(avctx->filter->name, "roberts_opencl")){
         kernel_name = "roberts_global";
+    } else {
+        av_assert0(0);
     }
     ctx->kernel = clCreateKernel(ctx->ocf.program, kernel_name, &cle);
     CL_FAIL_ON_ERROR(AVERROR(EIO), "Failed to create "
