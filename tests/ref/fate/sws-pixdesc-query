@@ -23,6 +23,8 @@ is16BPS:
   rgba64le
   rgbaf16be
   rgbaf16le
+  rgbf16be
+  rgbf16le
   ya16be
   ya16le
   yuv420p16be
@@ -43,6 +45,8 @@ isNBPS:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrp10be
   gbrp10le
   gbrp12be
@@ -67,8 +71,14 @@ isNBPS:
   p012le
   p210be
   p210le
+  p212be
+  p212le
   p410be
   p410le
+  p412be
+  p412le
+  v30xbe
+  v30xle
   x2bgr10be
   x2bgr10le
   x2rgb10be
@@ -141,6 +151,7 @@ isBE:
   bgra64be
   gbrap10be
   gbrap12be
+  gbrap14be
   gbrap16be
   gbrapf32be
   gbrp10be
@@ -160,17 +171,23 @@ isBE:
   p012be
   p016be
   p210be
+  p212be
   p216be
   p410be
+  p412be
   p416be
   rgb444be
   rgb48be
   rgb555be
   rgb565be
+  rgb96be
+  rgba128be
   rgba64be
   rgbaf16be
   rgbaf32be
+  rgbf16be
   rgbf32be
+  v30xbe
   x2bgr10be
   x2rgb10be
   xv30be
@@ -209,6 +226,7 @@ isBE:
   yuva444p9be
 
 isYUV:
+  ayuv
   ayuv64be
   ayuv64le
   nv12
@@ -226,16 +244,24 @@ isYUV:
   p016le
   p210be
   p210le
+  p212be
+  p212le
   p216be
   p216le
   p410be
   p410le
+  p412be
+  p412le
   p416be
   p416le
+  uyva
   uyvy422
   uyyvyy411
+  v30xbe
+  v30xle
   vuya
   vuyx
+  vyu444
   xv30be
   xv30le
   xv36be
@@ -338,10 +364,14 @@ isPlanarYUV:
   p016le
   p210be
   p210le
+  p212be
+  p212le
   p216be
   p216le
   p410be
   p410le
+  p412be
+  p412le
   p416be
   p416le
   yuv410p
@@ -431,10 +461,14 @@ isSemiPlanarYUV:
   p016le
   p210be
   p210le
+  p212be
+  p212le
   p216be
   p216le
   p410be
   p410le
+  p412be
+  p412le
   p416be
   p416le
 
@@ -475,6 +509,8 @@ isRGB:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrap16be
   gbrap16le
   gbrapf32be
@@ -507,12 +543,18 @@ isRGB:
   rgb565be
   rgb565le
   rgb8
+  rgb96be
+  rgb96le
+  rgba128be
+  rgba128le
   rgba64be
   rgba64le
   rgbaf16be
   rgbaf16le
   rgbaf32be
   rgbaf32le
+  rgbf16be
+  rgbf16le
   rgbf32be
   rgbf32le
   x2bgr10be
@@ -629,6 +671,8 @@ AnyRGB:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrap16be
   gbrap16le
   gbrapf32be
@@ -663,12 +707,18 @@ AnyRGB:
   rgb565be
   rgb565le
   rgb8
+  rgb96be
+  rgb96le
+  rgba128be
+  rgba128le
   rgba64be
   rgba64le
   rgbaf16be
   rgbaf16le
   rgbaf32be
   rgbaf32le
+  rgbf16be
+  rgbf16le
   rgbf32be
   rgbf32le
   x2bgr10be
@@ -677,6 +727,7 @@ AnyRGB:
   x2rgb10le
 
 ALPHA:
+  ayuv
   ayuv64be
   ayuv64le
   bgr32
@@ -688,6 +739,8 @@ ALPHA:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrap16be
   gbrap16le
   gbrapf32be
@@ -695,12 +748,15 @@ ALPHA:
   pal8
   rgb32
   rgb32_1
+  rgba128be
+  rgba128le
   rgba64be
   rgba64le
   rgbaf16be
   rgbaf16le
   rgbaf32be
   rgbaf32le
+  uyva
   vuya
   ya16be
   ya16le
@@ -734,6 +790,7 @@ ALPHA:
 Packed:
   0bgr
   0rgb
+  ayuv
   ayuv64be
   ayuv64le
   bayer_bggr16be
@@ -783,18 +840,28 @@ Packed:
   rgb565be
   rgb565le
   rgb8
+  rgb96be
+  rgb96le
+  rgba128be
+  rgba128le
   rgba64be
   rgba64le
   rgbaf16be
   rgbaf16le
   rgbaf32be
   rgbaf32le
+  rgbf16be
+  rgbf16le
   rgbf32be
   rgbf32le
+  uyva
   uyvy422
   uyyvyy411
+  v30xbe
+  v30xle
   vuya
   vuyx
+  vyu444
   x2bgr10be
   x2bgr10le
   x2rgb10be
@@ -821,6 +888,8 @@ Planar:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrap16be
   gbrap16le
   gbrapf32be
@@ -853,10 +922,14 @@ Planar:
   p016le
   p210be
   p210le
+  p212be
+  p212le
   p216be
   p216le
   p410be
   p410le
+  p412be
+  p412le
   p416be
   p416le
   yuv410p
@@ -977,12 +1050,18 @@ PackedRGB:
   rgb565be
   rgb565le
   rgb8
+  rgb96be
+  rgb96le
+  rgba128be
+  rgba128le
   rgba64be
   rgba64le
   rgbaf16be
   rgbaf16le
   rgbaf32be
   rgbaf32le
+  rgbf16be
+  rgbf16le
   rgbf32be
   rgbf32le
   x2bgr10be
@@ -996,6 +1075,8 @@ PlanarRGB:
   gbrap10le
   gbrap12be
   gbrap12le
+  gbrap14be
+  gbrap14le
   gbrap16be
   gbrap16le
   gbrapf32be
@@ -1029,8 +1110,12 @@ DataInHighBits:
   p012le
   p210be
   p210le
+  p212be
+  p212le
   p410be
   p410le
+  p412be
+  p412le
   xv36be
   xv36le
   xyz12be
@@ -1045,5 +1130,6 @@ SwappedChroma:
   nv42
   vuya
   vuyx
+  vyu444
   yvyu422
 

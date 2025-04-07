@@ -29,10 +29,11 @@
 #include "libavutil/bprint.h"
 #include "libavutil/eval.h"
 #include "libavutil/file.h"
+#include "libavutil/mem.h"
 #include "libavutil/opt.h"
 #include "libavutil/parseutils.h"
 #include "avfilter.h"
-#include "internal.h"
+#include "filters.h"
 #include "audio.h"
 #include "video.h"
 
@@ -487,6 +488,7 @@ static av_cold void uninit(AVFilterContext *ctx)
 
 static int filter_frame(AVFilterLink *inlink, AVFrame *ref)
 {
+    FilterLink *inl = ff_filter_link(inlink);
     AVFilterContext *ctx = inlink->dst;
     SendCmdContext *s = ctx->priv;
     int64_t ts;
@@ -534,7 +536,7 @@ static int filter_frame(AVFilterLink *inlink, AVFrame *ref)
                         double end = TS2T(interval->end_ts, AV_TIME_BASE_Q);
                         double current = TS2T(ref->pts, inlink->time_base);
 
-                        var_values[VAR_N]   = inlink->frame_count_in;
+                        var_values[VAR_N]   = inl->frame_count_in;
 #if FF_API_FRAME_PKT
 FF_DISABLE_DEPRECATION_WARNINGS
                         var_values[VAR_POS] = ref->pkt_pos == -1 ? NAN : ref->pkt_pos;
@@ -564,7 +566,7 @@ FF_ENABLE_DEPRECATION_WARNINGS
                     av_log(ctx, AV_LOG_VERBOSE,
                            "Processing command #%d target:%s command:%s arg:%s\n",
                            cmd->index, cmd->target, cmd->command, cmd_arg);
-                    ret = avfilter_graph_send_command(inlink->graph,
+                    ret = avfilter_graph_send_command(inl->graph,
                                                       cmd->target, cmd->command, cmd_arg,
                                                       buf, sizeof(buf),
                                                       AVFILTER_CMD_FLAG_ONE);
@@ -600,13 +602,6 @@ static const AVFilterPad sendcmd_inputs[] = {
     },
 };
 
-static const AVFilterPad sendcmd_outputs[] = {
-    {
-        .name = "default",
-        .type = AVMEDIA_TYPE_VIDEO,
-    },
-};
-
 const AVFilter ff_vf_sendcmd = {
     .name        = "sendcmd",
     .description = NULL_IF_CONFIG_SMALL("Send commands to filters."),
@@ -615,7 +610,7 @@ const AVFilter ff_vf_sendcmd = {
     .priv_size   = sizeof(SendCmdContext),
     .flags       = AVFILTER_FLAG_METADATA_ONLY,
     FILTER_INPUTS(sendcmd_inputs),
-    FILTER_OUTPUTS(sendcmd_outputs),
+    FILTER_OUTPUTS(ff_video_default_filterpad),
     .priv_class  = &sendcmd_class,
 };
 
@@ -631,13 +626,6 @@ static const AVFilterPad asendcmd_inputs[] = {
     },
 };
 
-static const AVFilterPad asendcmd_outputs[] = {
-    {
-        .name = "default",
-        .type = AVMEDIA_TYPE_AUDIO,
-    },
-};
-
 const AVFilter ff_af_asendcmd = {
     .name        = "asendcmd",
     .description = NULL_IF_CONFIG_SMALL("Send commands to filters."),
@@ -647,7 +635,7 @@ const AVFilter ff_af_asendcmd = {
     .priv_size   = sizeof(SendCmdContext),
     .flags       = AVFILTER_FLAG_METADATA_ONLY,
     FILTER_INPUTS(asendcmd_inputs),
-    FILTER_OUTPUTS(asendcmd_outputs),
+    FILTER_OUTPUTS(ff_audio_default_filterpad),
 };
 
 #endif
