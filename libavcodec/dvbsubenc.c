@@ -340,7 +340,7 @@ static int dvbsub_encode(AVCodecContext *avctx, uint8_t *outbuf, int buf_size,
             } else {
                 return AVERROR(EINVAL);
             }
-
+            
             if (buf_size < 6 + h->rects[clut_id]->nb_colors * 6)
                 return AVERROR_BUFFER_TOO_SMALL;
 
