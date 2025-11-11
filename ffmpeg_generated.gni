@@ -520,8 +520,8 @@ if (is_ohos && (current_cpu == "arm64" || current_cpu == "arm") && ffmpeg_brandi
     "libavcodec/exif.c",
     "libavcodec/h263_parser.c",
     "libavcodec/tiff_common.c",
-    "libavcodec/avidec.c",
-    "libavcodec/flvdec.c",
-    "libavcodec/mpegts.c",
+    "libavformat/avidec.c",
+    "libavformat/flvdec.c",
+    "libavformat/mpegts.c",
   ]
 }
