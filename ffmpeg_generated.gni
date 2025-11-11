@@ -514,3 +514,14 @@ if (is_use_linux_x64) {
     "libavcodec/x86/xvididct.asm",
   ]
 }
+
+if (is_ohos && (current_cpu == "arm64" || current_cpu == "arm") && ffmpeg_branding == "Chrome") {
+  ffmpeg_c_sources += [
+    "libavcodec/exif.c",
+    "libavcodec/h263_parser.c",
+    "libavcodec/tiff_common.c",
+    "libavcodec/avidec.c",
+    "libavcodec/flvdec.c",
+    "libavcodec/mpegts.c",
+  ]
+}
