@@ -12,7 +12,7 @@ ffmpeg_c_sources = []
 ffmpeg_gas_sources = []
 ffmpeg_asm_sources = []
 
-use_linux_config = is_linux || is_chromeos || is_fuchsia
+use_linux_config = is_linux || is_chromeos || is_fuchsia || is_ohos
 
 if (current_cpu == "arm64" || current_cpu == "arm64e" || current_cpu == "x64" ||
     (is_android && current_cpu == "arm" && arm_use_neon) ||
