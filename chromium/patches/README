@@ -910,40 +910,6 @@ Affects:
     libavformat/demux.c
 
 ------------------------------------------------------------------
-commit ae639da286e6b99393d03f87baa6badbdc63730a
-Author: Dale Curtis <dalecurtis@chromium.org>
-Date:   Tue Aug 13 21:49:29 2024 +0000
-
-    Allocate H.274 film grain metadata dynamically. Saves ~779kb.
-
-    Film grain support adds a huge amount of overhead to the H264Context
-    structure for a feature that is rarely used. On low end devices or
-    pages that have lots of media this bloats memory usage rapidly.
-
-    This changes the static film grain metadata allocations to be dynamic
-    which reduces the H264Context size from 851808 bytes to 53444 bytes.
-
-    This is slightly different than the version upstreamed in that it
-    doesn't apply the hevc changes, but we don't need those in Chrome.
-
-    R=tguilbert
-
-    Bug: https://crbug.com/359358875
-    Change-Id: I0269324edc2d58ef5a645c4585d903c1d01a1a00
-    Signed-off-by: Dale Curtis <dalecurtis@chromium.org>
-    Reviewed-on: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/5786487
-    Reviewed-by: Thomas Guilbert <tguilbert@chromium.org>
-
-Affects:
-    libavcodec/h2645_sei.c
-    libavcodec/h2645_sei.h
-    libavcodec/h264_picture.c
-    libavcodec/h264_sei.c
-    libavcodec/h264_slice.c
-    libavcodec/h264dec.c
-    libavcodec/h264dec.h
-
-------------------------------------------------------------------
 commit 468b9c8a52555953618ba1677fffb0a778dd6d87
 Author: Ho Cheung <hocheung@chromium.org>
 Date:   Sun Sep 1 08:43:04 2024 +0800
@@ -1004,36 +970,163 @@ Affects:
     libavcodec/aac/aacdec.c
 
 ------------------------------------------------------------------
-commit 686d6944501a6ee9c849581e3fe343273d4af3f6
-Author: Dan Sanders <sandersd@chromium.org>
-Date:   Tue Oct 1 12:09:08 2024 -0700
+commit 590dd6169ac0b8ee102086cfb40c51dee5a47072
+Author: Ted Meyer <tmathmeyer@chromium.org>
+Date:   Mon Dec 9 16:16:13 2024 -0800
 
-    Fix lookup of film_grain_characteristics
+    Guard use of ff_aom_uninit_film_grain_params
 
-    This should not be taking an address now that the field is a pointer.
-
-    Bug: 369956909
-    Change-Id: I502a859885741635436910ba6219147b25761606
-    Reviewed-on: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/5901863
-    Reviewed-by: Dale Curtis <dalecurtis@chromium.org>
+    All other use of the dynamic allocation operations for aom_film_grain
+    are guarded by this flag as well.
 
 Affects:
     libavcodec/h2645_sei.c
 
 ------------------------------------------------------------------
-commit 99f17d50d3b4d28740ebc6fb092050363113fce9
-Author: Eugene Zemtsov <eugene@chromium.org>
-Date:   Mon Oct 21 16:22:36 2024 -0700
+commit e89a63b83dbfbce2f69f392b228e3ebe6f8a77b7
+Author: Ted Meyer <tmathmeyer@chromium.org>
+Date:   Mon Dec 9 16:24:28 2024 -0800
 
-    Fix incorrect enum type used for a local variable
+    Guard use of ff_dvdclut* functions with a CONFIG
 
-    It's AVPacketSideDataType, not AVFrameSideDataType.
-
-    Bug: https://issues.chromium.org/issues/374797732
-    Change-Id: If75702c6d639ca63827cc3370477de00544d3c0f
-    Reviewed-on: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/5950926
-    Reviewed-by: Ted (Chromium) Meyer <tmathmeyer@chromium.org>
+    This functions are implemented in libavformat/dvdclut.c which is only
+    built when CONFIG_DVDVIDEO_DEMUXER is set. Chromium does not use this
+    demuxer, or set this flag, so the symbols are missing.
 
 Affects:
-    libavcodec/decode.c
+    libavformat/mov.c
+
+------------------------------------------------------------------
+commit 89a09990a932e5442c603b902916cf013436246a
+Author: Ted Meyer <tmathmeyer@chromium.org>
+Date:   Thu Dec 12 17:19:33 2024 -0800
+
+    add __attribute__((used)) to ff_h264_cabac_tables
+
+    Bug: 383824580
+
+Affects:
+    libavcodec/cabac.c
+
+------------------------------------------------------------------
+commit 818bf360d55593a8676346864195b377699b2f13
+Author: Ted Meyer <tmathmeyer@chromium.org>
+Date:   Fri Dec 13 16:55:41 2024 -0800
+
+    Guard memmove length calculations
+
+    stts_count and ctts_count aren't guaranteed to be larger than
+    index_entry_pos, which could cause overflow of the unsigned size
+    argument for memmove, leading to massive out of bounds memory writes.
+
+    Bug: 383454674
+
+Affects:
+    libavformat/mov.c
+
+------------------------------------------------------------------
+commit cae04bf9414c582fcc28edc6078ebfd3800e7838
+Merge: d10a0f8bf5 d5873be583
+Author: Frank Liberato <liberato@chromium.org>
+Date:   Mon Jan 13 20:41:30 2025 +0000
+
+    Merge remote-tracking branch 'upstream/master' into sushi-2025-01-13-20-34-05
+
+     Conflicts:
+            libavcodec/h2645_sei.c
+            libavcodec/hevc/hevcdec.c
+            libavformat/mov.c
+
+Affects:
+    libavformat/mov.c
+
+------------------------------------------------------------------
+commit b6701d3e05cf0f823978b558822a7b810d897a5a
+Author: Frank Liberato <liberato@chromium.org>
+Date:   Tue Jan 14 00:37:44 2025 +0000
+
+    [ffmpeg] ffmpeg roll for M134
+
+    == new patch ==
+    Remove aom_film_grain
+
+    This was added as a dep in the latest roll, which brings in files that
+    we don't need.
+
+    == usual stuff ==
+    README.chromium file
+    Chromium patches file
+    GN Configuration
+
+    Bug: 389777787
+    Change-Id: Ia373b13d4268651550fee1a14aaa4bcad7d7cd84
+    Reviewed-on: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/6172268
+    Reviewed-by: Ted (Chromium) Meyer <tmathmeyer@chromium.org>
+    Reviewed-by: Thomas Guilbert <tguilbert@chromium.org>
+    Reviewed-by: Dale Curtis <dalecurtis@chromium.org>
+
+Affects:
+    libavcodec/Makefile
+
+------------------------------------------------------------------
+commit dc0b6ad4dd1d4d483fa1704142b6a1f14e6dad33
+Author: Frank Liberato <liberato@chromium.org>
+Date:   Fri Jan 31 19:02:31 2025 +0000
+
+    Check for `!tts_count` before accessing `tts_data`
+
+Affects:
+    libavformat/mov.c
+
+------------------------------------------------------------------
+commit cc6ef549b065e0dfc20856f6d32fcba935a98a95
+Author: Ted Meyer <tmathmeyer@chromium.org>
+Date:   Fri Feb 14 11:06:26 2025 -0800
+
+    Fix Null-dereference READ
+
+    Upstream patch pending:
+    https://patchwork.ffmpeg.org/project/ffmpeg/patch/20250213155232.59-1-jamrial@gmail.com
+
+    Bug: 396192874
+
+Affects:
+    libavformat/mov.c
+
+------------------------------------------------------------------
+commit 6c6759c1598cf7aa4e0328733d36ac4350d5b1c7
+Author: Hans-Filip Elo <hans-filip.elo@xperi.com>
+Date:   Thu Feb 20 13:00:16 2025 +0100
+
+    Fixes to build ffmpeg
+
+    We are a Chromium integrator, we saw build issues with ffmpeg due to a
+    patch not applied correctly in Chromium. This is a weird issue to me.
+
+    Chromium seems to modify ffmpeg. This seem to have lead to a revert not
+    being properly applied. Here follows patch order in Chromiums ffmpeg:
+
+    1. Problematic patch that got reverted in ffmpeg [1]
+    2. Patching of some nullcheck that's only made in Chromium ffmpeg [2]
+    3. The revert of problematic patch in ffmpeg [3]
+
+    This patch order seem to have lead to stray:
+
+        s->sei.common.aom_film_grain->enable
+
+    Being left in hevcdec.c. aom_film_grain does not seem to be a pointer.
+    This patch updates any such instances to match with ffmpeg upstream.
+
+    [1]: https://github.com/FFmpeg/FFmpeg/commit/08b1bffa49715a9615acc025dfbea252d8409e1f
+    [2]: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/5825845
+    [3]: https://github.com/FFmpeg/FFmpeg/commit/08b1bffa49715a9615acc025dfbea252d8409e1f
+
+    Change-Id: Ia047bd45625208819d774ad3dbba38b325a0c936
+    Reviewed-on: https://chromium-review.googlesource.com/c/chromium/third_party/ffmpeg/+/6286027
+    Reviewed-by: Dale Curtis <dalecurtis@chromium.org>
+    Reviewed-by: Eugene Zemtsov <eugene@chromium.org>
+    Reviewed-by: Thomas Guilbert <tguilbert@chromium.org>
+
+Affects:
+    libavcodec/hevc/hevcdec.c
 

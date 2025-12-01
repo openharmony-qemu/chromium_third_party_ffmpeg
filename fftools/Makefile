@@ -19,9 +19,20 @@ OBJS-ffmpeg +=                  \
     fftools/ffmpeg_mux_init.o   \
     fftools/ffmpeg_opt.o        \
     fftools/ffmpeg_sched.o      \
-    fftools/objpool.o           \
     fftools/sync_queue.o        \
     fftools/thread_queue.o      \
+
+OBJS-ffprobe +=                       \
+    fftools/textformat/avtextformat.o \
+    fftools/textformat/tf_compact.o   \
+    fftools/textformat/tf_default.o   \
+    fftools/textformat/tf_flat.o      \
+    fftools/textformat/tf_ini.o       \
+    fftools/textformat/tf_json.o      \
+    fftools/textformat/tf_xml.o       \
+    fftools/textformat/tw_avio.o      \
+    fftools/textformat/tw_buffer.o    \
+    fftools/textformat/tw_stdout.o    \
 
 OBJS-ffplay += fftools/ffplay_renderer.o
 
@@ -31,7 +42,7 @@ ifdef HAVE_GNU_WINDRES
 OBJS-$(1) += fftools/fftoolsres.o
 endif
 $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
-$$(OBJS-$(1)): | fftools
+$$(OBJS-$(1)): | fftools fftools/textformat
 $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
 $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
 $(1)$(PROGSSUF)_g$(EXESUF): FF_EXTRALIBS += $(EXTRALIBS-$(1))
@@ -44,6 +55,7 @@ all: $(AVPROGS)
 
 fftools/ffprobe.o fftools/cmdutils.o: libavutil/ffversion.h | fftools
 OUTDIRS += fftools
+OUTDIRS += fftools/textformat
 
 ifdef AVPROGS
 install: install-progs install-data

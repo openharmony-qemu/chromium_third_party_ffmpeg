@@ -620,7 +620,11 @@ static void dump_stream_format(const AVFormatContext *ic, int i,
 
     // Fields which are missing from AVCodecParameters need to be taken from the AVCodecContext
     if (sti->avctx) {
+#if FF_API_CODEC_PROPS
+FF_DISABLE_DEPRECATION_WARNINGS
         avctx->properties   = sti->avctx->properties;
+FF_ENABLE_DEPRECATION_WARNINGS
+#endif
         avctx->codec        = sti->avctx->codec;
         avctx->qmin         = sti->avctx->qmin;
         avctx->qmax         = sti->avctx->qmax;
@@ -672,6 +676,11 @@ static void dump_stream_format(const AVFormatContext *ic, int i,
             print_fps(av_q2d(st->r_frame_rate), tbn ? "tbr, " : "tbr", log_level);
         if (tbn)
             print_fps(1 / av_q2d(st->time_base), "tbn", log_level);
+    }
+
+    if (st->start_time != AV_NOPTS_VALUE && st->start_time != 0 && st->time_base.den && st->time_base.num) {
+        const double stream_start = av_q2d(st->time_base) * st->start_time;
+        av_log(NULL, AV_LOG_INFO, ", Start-Time %.3fs", stream_start);
     }
 
     dump_disposition(st->disposition, log_level);
@@ -752,12 +761,12 @@ static void dump_stream_group(const AVFormatContext *ic, uint8_t *printed,
             for (int k = 0; k < sub_mix->nb_layouts; k++) {
                 const AVIAMFSubmixLayout *submix_layout = sub_mix->layouts[k];
                 av_log(NULL, AV_LOG_INFO, "      Layout #%d:", k);
-                if (submix_layout->layout_type == 2) {
+                if (submix_layout->layout_type == 2 ||
+                    submix_layout->layout_type == 3) {
                     ret = av_channel_layout_describe(&submix_layout->sound_system, buf, sizeof(buf));
                     if (ret >= 0)
                         av_log(NULL, AV_LOG_INFO, " %s", buf);
-                } else if (submix_layout->layout_type == 3)
-                    av_log(NULL, AV_LOG_INFO, " Binaural");
+                }
                 av_log(NULL, AV_LOG_INFO, "\n");
             }
         }
@@ -789,9 +798,13 @@ static void dump_stream_group(const AVFormatContext *ic, uint8_t *printed,
                       tile_grid->width, tile_grid->height, (AVRational) {0,1},
                       "    ", AV_LOG_INFO);
         for (int i = 0; i < tile_grid->nb_tiles; i++) {
-            const AVStream *st = stg->streams[tile_grid->offsets[i].idx];
-            dump_stream_format(ic, st->index, i, index, is_output, AV_LOG_VERBOSE);
-            printed[st->index] = 1;
+            const AVStream *st = NULL;
+            if (tile_grid->offsets[i].idx < stg->nb_streams)
+                st = stg->streams[tile_grid->offsets[i].idx];
+            if (st && !printed[st->index]) {
+                dump_stream_format(ic, st->index, i, index, is_output, AV_LOG_VERBOSE);
+                printed[st->index] = 1;
+            }
         }
         for (int i = 0; i < stg->nb_streams; i++) {
             const AVStream *st = stg->streams[i];
