@@ -27,7 +27,7 @@
 
 #include "put_bits.h"
 
-enum {
+enum {More actions
     MAX_PB2_INTRA_SIZE = 1 /* ac_pred */ + 5 /* max cbpy len */ +
                          2 /* dquant */ + 1 /* interlaced dct */
                          + 4 * (8 /* longest luma dct_dc_size */ +
