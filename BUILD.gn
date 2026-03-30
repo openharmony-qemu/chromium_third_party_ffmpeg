@@ -228,6 +228,10 @@ target(link_target_type, "ffmpeg_internal") {
     "FFMPEG_CONFIGURATION=NULL",
   ]
 
+  if (is_ohos) {
+    defines += [ "CONFIG_ARKWEB_MEDIA" ]
+  }
+
   if (is_component_ffmpeg) {
     configs += [ "//build/config/sanitizers:cfi_icall_disable" ]
   }
@@ -432,6 +436,25 @@ target(link_target_type, "ffmpeg_internal") {
   }
 }
 
+if (is_ohos && is_component_ffmpeg && current_cpu == "x64") {
+  # On x86_64, so package of ffmpeg fails to be compiled because the symbol cannot be found.
+  # Use static_library to compile the symbol definition file into the target file to avoid this error.
+  static_library("mpegvideodata") {
+    sources = [
+      "libavcodec/mpegvideodata.c",
+      "libavcodec/mpegvideodata.h",
+    ]
+  }
+ 
+  static_library("h263dsp") {
+    sources = [
+      "libavcodec/h263dsp.c",
+      "libavcodec/h263dsp.h",
+    ]
+    configs += [ ":ffmpeg_dependent_config" ]
+  }
+}
+
 if (is_component_ffmpeg) {
   shared_library("ffmpeg") {
     if (is_android) {
@@ -439,6 +462,12 @@ if (is_component_ffmpeg) {
     }
     public_configs = [ ":ffmpeg_dependent_config" ]
     deps = [ ":ffmpeg_internal" ]
+    if (is_ohos && current_cpu == "x64") {
+      deps += [
+        ":mpegvideodata",
+        ":h263dsp",
+      ]
+    }
 
     # So we can append below and assume they're defined.
     ldflags = []
