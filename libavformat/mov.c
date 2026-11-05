@@ -8588,7 +8588,7 @@ static int mov_read_lhvc(MOVContext *c, AVIOContext *pb, MOVAtom atom)
         // TODO: handle lhvC when present before hvcC
         return 0;
 
-    if (atom.size < 6 || st->codecpar->extradata_size < 23)
+    if (atom.size < 6 || st->codecpar->extradata_size < 23 || (uint64_t)atom.size > (1<<30))
         return AVERROR_INVALIDDATA;
 
     buf = av_malloc(atom.size + AV_INPUT_BUFFER_PADDING_SIZE);
