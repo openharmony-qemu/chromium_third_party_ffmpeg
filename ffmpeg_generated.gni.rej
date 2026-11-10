@@ -1,6 +1,8 @@
 --- ffmpeg_generated.gni
 +++ ffmpeg_generated.gni
-@@ -293,29 +293,6 @@ if (((current_cpu == "arm64" || current_cpu == "arm64e") &&
+@@ -291,33 +291,10 @@ if (((current_cpu == "arm64" || current_cpu == "arm64e") &&
+     "libavformat/autorename_libavformat_aacdec.c",
+     "libavformat/img2.c",
    ]
  }
  
@@ -30,7 +32,11 @@
  
  if (use_linux_config && current_cpu == "riscv64" &&
      ffmpeg_branding == "Chrome") {
-@@ -472,21 +449,6 @@ if ((use_linux_config && current_cpu == "arm" && arm_use_neon &&
+   ffmpeg_c_sources += [
+     "libavcodec/riscv/autorename_libavcodec_riscv_aacpsdsp_init.c",
+@@ -470,25 +447,10 @@ if ((use_linux_config && current_cpu == "arm" && arm_use_neon &&
+     "libavcodec/arm/startcode_armv6.S",
+     "libavcodec/arm/videodsp_armv5te.S",
    ]
  }
  
@@ -52,3 +58,5 @@
  if (use_linux_config && current_cpu == "arm" && arm_use_neon &&
      ffmpeg_branding == "Chrome") {
    ffmpeg_gas_sources += [
+     "libavcodec/arm/h264cmc_neon.S",
+     "libavcodec/arm/h264dsp_neon.S",
