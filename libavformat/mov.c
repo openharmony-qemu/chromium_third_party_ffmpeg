@@ -4093,6 +4093,7 @@ static int add_tts_entry(MOVTimeToSample **tts_data, unsigned int *tts_count, un
 {
     MOVTimeToSample *tts_buf_new;
     const size_t min_size_needed = (*tts_count + 1) * sizeof(MOVTimeToSample);
+    const size_t old_allocated_size = *allocated_size;
     const size_t requested_size =
         min_size_needed > *allocated_size ?
         FFMAX(min_size_needed, 2 * (*allocated_size)) :
@@ -4107,6 +4108,10 @@ static int add_tts_entry(MOVTimeToSample **tts_data, unsigned int *tts_count, un
         return -1;
 
     *tts_data = tts_buf_new;
+    if (*allocated_size > old_allocated_size) {
+        memset((uint8_t*)tts_buf_new + old_allocated_size, 0,
+               *allocated_size - old_allocated_size);
+    }
 
     tts_buf_new[*tts_count].count = count;
     tts_buf_new[*tts_count].offset = offset;
@@ -5914,7 +5919,7 @@ static int mov_read_trun(MOVContext *c, AVIOContext *pb, MOVAtom atom)
     sti->index_entries= new_entries;
 
     requested_size = (sti->nb_index_entries + entries) * sizeof(*sc->tts_data);
-    old_allocated_size = sc->tts_allocated_size;
+    old_allocated_size = sc->tts_count * sizeof(*sc->tts_data);
     tts_data = av_fast_realloc(sc->tts_data, &sc->tts_allocated_size,
                                 requested_size);
     if (!tts_data)
@@ -5924,8 +5929,10 @@ static int mov_read_trun(MOVContext *c, AVIOContext *pb, MOVAtom atom)
     // In case there were samples without time to sample entries, ensure they get
     // zero valued entries. This ensures clips which mix boxes with and
     // without time to sample entries don't pickup uninitialized data.
-    memset((uint8_t*)(sc->tts_data) + old_allocated_size, 0,
-           sc->tts_allocated_size - old_allocated_size);
+    if (sc->tts_allocated_size > old_allocated_size) {
+        memset((uint8_t*)(sc->tts_data) + old_allocated_size, 0,
+               sc->tts_allocated_size - old_allocated_size);
+    }
 
     if (index_entry_pos < sti->nb_index_entries) {
         // Make hole in index_entries and tts_data for new samples
